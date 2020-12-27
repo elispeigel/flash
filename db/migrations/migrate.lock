@@ -1,3 +1,6 @@
 # Prisma Migrate lockfile v1
 
 20201203031629-initial-migration
+20201209031258-v1
+20201210040944-v2
+20201227182306-linclude-userid-in-trainnig-session
