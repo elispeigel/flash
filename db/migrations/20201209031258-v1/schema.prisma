@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgres"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -18,15 +18,14 @@ enum Role {
 }
 
 model User {
-  id               Int       @default(autoincrement()) @id
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
-  name             String?
-  email            String    @unique
-  hashedPassword   String?
-  role             String    @default("user")
-  sessions         Session[]
-  trainingSessions TrainingSession[]
+  id             Int       @default(autoincrement()) @id
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  name           String?
+  email          String    @unique
+  hashedPassword String?
+  role           String    @default("user")
+  sessions       Session[]
 }
 
 model Session {
@@ -45,8 +44,6 @@ model Session {
 
 model TrainingSession {
   id              Int              @default(autoincrement()) @id
-  user            User?            @relation(fields:  [userId], references: [id])
-  userId          Int?
   title           String
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
